@@ -7,10 +7,10 @@ namespace Polish_Notation_Console_Project
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter input string");
-            string input = Console.ReadLine();
-
-            Console.WriteLine(PolishNotation.Calculate(input)); 
+            Console.WriteLine("Enter expression");
+            //string input = Console.ReadLine();
+            string input = "";
+            Console.WriteLine(PolishNotation.Calculate(input));
         }
     }
 }

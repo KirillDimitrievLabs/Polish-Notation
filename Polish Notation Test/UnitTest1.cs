@@ -7,7 +7,7 @@ namespace Polish_Notation_Test
     public class UnitTest1
     {
         [TestMethod]
-        public void PolishNotation_Calculate_CorrectInputData()
+        public void PolishNotation_Calculate_CorrectInputData_SimpleExpression()
         {
             //Arrange
             string input = "+ 3 4";
@@ -15,18 +15,16 @@ namespace Polish_Notation_Test
 
             // Act
             double result = PolishNotation.Calculate(input);
-
             // Assert
             Assert.AreEqual(result, expected);
-
         }
 
         [TestMethod]
         public void PolishNotation_Calculate_WrongInputData_LettersInInput()
         {
             //Arrange
-            string input = "++ 2 3 4asd";
-            string expected = "Input string was not in a correct format.";
+            string input = "a+a +a 2a 3a 4a";
+            string expected = "Wrong expression format";
 
             // Act
             try
@@ -46,7 +44,7 @@ namespace Polish_Notation_Test
         {
             //Arrange
             string input = "123 123 3 3 +++";
-            string expected = "One of the identified items was in an invalid format";
+            string expected = "Wrong expression format";
 
             // Act
             try
@@ -65,7 +63,7 @@ namespace Polish_Notation_Test
         {
             //Arrange
             string input = "";
-            string expected = "Value cannot be null.";
+            string expected = "Input string cannot be empty or WhiteSpace";
 
             // Act
             try
@@ -77,6 +75,32 @@ namespace Polish_Notation_Test
                 // Assert
                 StringAssert.Contains(e.Message, expected);
             }
+        }
+
+        [TestMethod]
+        public void PolishNotation_Calculate_CorrectInputData_HardExpression()
+        {
+            //Arrange
+            string input = "/ + 4 4 + 2 2";
+            double expected = 2;
+
+            // Act
+            double result = PolishNotation.Calculate(input);
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void PolishNotation_Calculate_CorrectInputData_SuperHardExpression()
+        {
+            //Arrange
+            string input = "* / / + 4 4 + 1 1 / + 4 4 + 2 2 5";
+            double expected = 10;
+
+            // Act
+            double result = PolishNotation.Calculate(input);
+            // Assert
+            Assert.AreEqual(expected, result);
         }
     }
 }
