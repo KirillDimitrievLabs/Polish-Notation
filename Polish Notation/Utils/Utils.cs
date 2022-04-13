@@ -77,7 +77,7 @@ namespace Utilities
         }
         
         // Метод проверки на корректность количества операторов и операндов
-        internal static bool IsCorrectNumsOfTokens(string[] tokens)
+        private static bool IsCorrectNumsOfTokens(string[] tokens)
         {
             List<string> operators = new List<string>();
             List<string> digits = new List<string>();
@@ -105,7 +105,7 @@ namespace Utilities
         }
 
         // Метод расчёта двух чисел с оператором типа string
-        internal static double CalculateTwoDigitsWithOperator(string _operator, double firstOperand, double secondOperand)
+        private static double CalculateTwoDigitsWithOperator(string _operator, double firstOperand, double secondOperand)
         {
             double result;
             if (!Char.IsLetter(Char.Parse(_operator)))
