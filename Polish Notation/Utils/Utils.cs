@@ -71,7 +71,6 @@ namespace Utilities
                 expression = Regex.Replace(expression, @"\s+", " ").Trim();
 
                 // Разделяем выражение на токены и возвращаем
-                Console.WriteLine(expression);
                 return expression.Split(' ');
             }
         }
